@@ -5,17 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="stopwatch, timer, watch, track time">
     <meta description="Stopwatch">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="./assets/js/script.js"></script>
     <title>Stopwatch</title>
 </head>
 <body>
    
-    <h1>Stopwatch</h1>
-    
-    <div class="container watch">
-        <p class="current-time">00</p>
-        <button type="button" class="start-bt">Start</button>
-        <button type="button" class="stop-bt">Stop</button>
-        <button type="button" class="reset-bt">Reset</button>
-    <div>
+    <main class="container-watch">
+        <h1 class="title-watch">Stopwatch</h1>
+        <span class="current-time">00:00</span>
+        <div class="buttons">
+            <button type="button" class="watch-bt" id="start-bt">Start</button>
+            <button type="button" class="watch-bt" id="stop-bt">Stop</button>
+            <button type="button" class="watch-bt" id="reset-bt">Reset</button>
+        </div>
+    </main>
 </body>
 </html>
