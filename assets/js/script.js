@@ -1,36 +1,22 @@
-//Definir display contador
- //pausar o tempo de contagem 
- //continuar o tempo de contagem
- //zerar o tempo de contagem
 
-
- //LOOP
-     //counter == 0
-     //FOR EACH second counter change to + 1 second;
-     //IF counter stop == freeze the time;
-     // ELSE IF counter play == unfreeze time to continue counting.
-     // ELSE == counter == 0
-
+      // Get html elements
      let btStart = document.getElementById('start-bt');
      let btStop = document.getElementById('stop-bt');
      let btReset = document.getElementById('reset-bt');
-     //add event listener to execute after the page is loaded 
+     let addMin = document.getElementById('minutes');
+     let addSec = document.getElementById('seconds');
 
-     btStart.addEventListener('click', () => {
-
-        // Get html elements
-        let addMin = document.getElementById('minutes');
-        let addSec = document.getElementById('seconds');
-
-        // Set minutes and seconds to count from 0
-        let minutes = 0;
-        let seconds = 0;
+     // Set minutes and seconds to count from 0
+     let minutes = 0;
+     let seconds = 0; 
+   
+        btStart.addEventListener('click', () => {
 
          // Create function to start counting
          function startTimer() {
 
              seconds++;
-             if(seconds == 1) {
+             if(seconds == 10) {
                  minutes ++
                  seconds = 0;
              }
@@ -47,26 +33,27 @@
             } else {
                 addMin.innerHTML = minutes + ':';
             }
-
         }
 
          //use method interval to execute function every 1000 miliseconds
          const interval = setInterval(startTimer, 1000);
 
-
+        // Stop counting when stop is clicked
          btStop.addEventListener('click', () => {
        
-
-            enable = false;
             clearTimeout(interval);
-    
-            
-    });
-
-
      });
+
+
+        btReset.addEventListener('click', () => {
+
+            minutes = 0;
+            seconds = 0;
+            addSec.innerHTML = '0' + seconds;
+            addMin.innerHTML = '0' + minutes + ':';
+
+        });
+
+    });
      
-    
-
-
     
