@@ -9,14 +9,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <script src="./assets/js/script.js"></script>
+    
     <title>Stopwatch</title>
 </head>
 <body>
    
     <main class="container-watch">
         <h1 class="title-watch">Stopwatch</h1>
-        <span class="current-time">00:00</span>
+        <span class="current-time" id="minutes">00</span>:<span class="current-time" id="seconds">00</span>
+    
         <div class="buttons">
             <button type="button" class="watch-bt" id="start-bt">Start</button>
             <button type="button" class="watch-bt" id="stop-bt">Stop</button>
@@ -24,4 +25,5 @@
         </div>
     </main>
 </body>
+<script src="./assets/js/script.js"></script>
 </html>
