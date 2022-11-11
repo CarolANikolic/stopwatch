@@ -1,13 +1,22 @@
-html {
+/* color variables  */
+:root {
+    --bg: radial-gradient(circle, rgba(248,250,114,1) 0%, rgba(255,26,76,1) 114%);
+}
+
+.darkmode {
+    --bg: #160d29;
+}
+
+body {
     font-family: 'Poppins', sans-serif;
-    background: radial-gradient(circle, rgba(248,250,114,1) 0%, rgba(255,26,76,1) 114%);
+    background: var(--bg);
 }
 
 .container-watch {
     width: 60%;
     display: flex;
     background: #f0f0f0;
-    margin: 10% auto;
+    margin: 8% auto;
     border-radius: 20px;
     text-align: center;
     flex-direction: column;
@@ -18,14 +27,8 @@ html {
     font-weight: 300;
 }
 
-.test {
-    display: flex;
-    justify-content: center;
-}
-
 .current-time {
     font-size: 2em;
-    padding: 5%;
 }
 
 .current-time:nth-child(1) {
@@ -51,21 +54,42 @@ html {
     margin-left: 3%;
     font-size: 1em;
     font-family: 'Poppins', sans-serif;
+    transition: all 0.2s;
 }
 
 .watch-bt:hover {
-    background: rgb(248,250,114);
-    background: linear-gradient(219deg, rgba(248,250,114,1) 0%, rgba(255,26,76,1) 114%);
+    background: var(--bg);
     border-style: none;
     font-weight: bold;
+    
 }
+
+.watch-bt:active {
+    transform: scale(0.8);
+}
+
+
+/* button dark mode */
+.light-dark-mode {
+    display: flex;
+    justify-content:flex-end;
+}
+
+.dark-mode-toggle {
+  width: 5;
+  background: none;
+  border: none;
+  margin: 5% 5% 0 0;
+
+}
+
 
 /* Responsive layout for mobile */
 @media (max-width: 768px) {
 
     .container-watch {
         width: 80%;
-        margin: 55% auto;
+        margin: 40% auto;
     }
 
     .title-watch {
@@ -84,5 +108,9 @@ html {
     .watch-bt:first-child {
         margin-top: 20%;
     }
+
+    .dark-mode-toggle {
+        margin: 10% 5% 0 0;
+      }
     
 }
