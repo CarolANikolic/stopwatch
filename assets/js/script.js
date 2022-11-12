@@ -9,15 +9,12 @@ let addSec = document.getElementById('seconds');
 // Set minutes and seconds to count from 0
 let minutes = 0;
 let seconds = 0; 
-   
-    btStart.addEventListener('click', () => {
 
-        // Create function to start counting
-         function startTimer() {
-
-             seconds++;
-             if(seconds == 10) {
-                 minutes ++
+// arrow function to determine rules for counting and display on screen
+    const startTimer = () => {
+        seconds++;
+             if(seconds == 59) {
+                 minutes ++;
                  seconds = 0;
              }
 
@@ -33,29 +30,43 @@ let seconds = 0;
             } else {
                 addMin.innerHTML = minutes + ':';
             }
-        }
 
-         //use method interval to execute function every 1000 miliseconds
-         const interval = setInterval(startTimer, 1000);
+            btStart.disabled = true; 
+    }
+
+    // Reseting time to 00:00
+    const resetTimer = () => {
+        minutes = 0;
+        seconds = 0;
+        addSec.innerHTML = '0' + seconds;
+        addMin.innerHTML = '0' + minutes + ':';
+    }
+
+   
+    btStart.addEventListener('click', () => {
+
+        // Call to start counting
+        startTimer();
 
         // Stop counting when stop is clicked
-         btStop.addEventListener('click', () => {
+        btStop.addEventListener('click', () => {
        
-            clearTimeout(interval);
+        clearTimeout(interval);
+
+        btStart.disabled = false;
+        
      });
+        
+        // Use method setInterval to execute function every 1000 miliseconds
+        const interval = setInterval(startTimer, 1000);
+    });
 
-
-        btReset.addEventListener('click', () => {
-
-            minutes = 0;
-            seconds = 0;
-            addSec.innerHTML = '0' + seconds;
-            addMin.innerHTML = '0' + minutes + ':';
-
-        });
-
+ 
+    btReset.addEventListener('click', () => {
+        resetTimer();
     });
      
+
 // Developing dark mode
 // Pseudo-code:
 //check if dark mode is enabled
@@ -70,9 +81,8 @@ let darkMode = localStorage.getItem('darkMode');
 // Get button element from html doc
 const darkModeToggle = document.querySelector('#dark-mode-toggle');
 
-//create arrow function to be able to call this function multiple times
-//adding or removing darkmode style. Setting new default style in localStorage
 
+//adding or removing darkmode style. Setting new default style in localStorage
 const enableDarkMode = () => {
      // add the css class darkmode to the body;
     document.body.classList.add('darkmode');
